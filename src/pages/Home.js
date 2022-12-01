@@ -11,7 +11,7 @@ const Home = () => {
   const [slides, setSlides] = useState([]);
   const [topics, setTopics] = useState([]);
   useEffect(() => {
-    onSnapshot(collection(db, "Carslider-data"), (snapshot) =>
+    onSnapshot(collection(db, "slider-data-English"), (snapshot) =>
       setSlides(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -19,7 +19,7 @@ const Home = () => {
         }))
       )
     );
-    onSnapshot(collection(db, "topics-data"), (snapshot) =>
+    onSnapshot(collection(db, "topics-data-English"), (snapshot) =>
       setTopics(
         snapshot.docs.map((doc) => ({
           id: doc.id,

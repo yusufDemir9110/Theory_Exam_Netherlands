@@ -4,6 +4,7 @@ import HomeTurkish from "./pages/HomeTurkish";
 import Lessons from "./pages/Lessons";
 import Exercises from "./pages/Exercises";
 import ExercisesResult from "./pages/ExercisesResult";
+import Auth from "./admin/loginPages/Auth";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/lessons" element={<Lessons />} />
         <Route exact path="/exercises" element={<Exercises />} />
         <Route exact path="/exercises-result" element={<ExercisesResult />} />
+        <Route exact path="/admin" element={<Auth />} />
       </Routes>
     </div>
   );
