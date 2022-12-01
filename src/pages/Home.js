@@ -108,10 +108,10 @@ const Home = () => {
                 </div>
 
                 <div className="topic_desc" id="topic_desc_5">
-                  <Link to={"/lessons"} state={{ state: data.name }}>
+                  <Link to={"/lessons"} state={data.name}>
                     <button className="buttonTop">Lesson</button>
                   </Link>
-                  <Link to={"/exercise"} state={{ state: data.name }}>
+                  <Link to={"/exercises"} state={data.name}>
                     <button className="buttonTop">Exercise</button>
                   </Link>
                 </div>
