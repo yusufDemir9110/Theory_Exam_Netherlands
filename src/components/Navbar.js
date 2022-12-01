@@ -18,34 +18,34 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div class="logo">
+      <div className="logo">
         <div>TheoryExam</div>
       </div>
-      <div class="menuMainItems">
-        <ul class="mainUl">
-          <li class="menuSubItems">
+      <div className="menuMainItems">
+        <ul className="mainUl">
+          <li className="menuSubItems">
             Lessons
-            <ul class="subUl">
+            <ul className="subUl">
               {topics.map(({ id, data }) => (
-                <Link to={"/lessons"} state={{ state: data.name }}>
-                  <li key={id}>{data.name}</li>
+                <Link to={"/lessons"} key={id} state={{ state: data.name }}>
+                  <li>{data.name}</li>
                 </Link>
               ))}
             </ul>
           </li>
-          <li class="menuSubItems">
+          <li className="menuSubItems">
             Exercises
-            <ul class="subUl">
+            <ul className="subUl">
               {topics.map(({ id, data }) => (
-                <Link to={"/exercises"} state={{ state: data.name }}>
-                  <li key={id}>{data.name}</li>
+                <Link to={"/exercises"} key={id} state={{ state: data.name }}>
+                  <li>{data.name}</li>
                 </Link>
               ))}
             </ul>
           </li>
-          <li class="menuSubItems">
+          <li className="menuSubItems">
             Languages
-            <ul class="subUl">
+            <ul className="subUl">
               <Link to="/">
                 <li>English</li>
               </Link>

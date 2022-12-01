@@ -414,3 +414,223 @@ h1 {
         margin: 15px 0;
     }
 }
+
+/*Lessons*/
+.slideBody {
+    background-color: white;
+}
+
+.mainSlide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonCont {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonCont button {
+    margin: 10px 20px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.dataHeadLesson {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.dataImageLesson>img {
+    border-radius: 10px;
+}
+
+.dataDesc {
+    width: 100%;
+    position: relative;
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 500;
+    text-indent: 15px;
+}
+
+.dataDesc h3 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.dataDesc p {
+    margin-bottom: 5px !important;
+}
+
+.speedT {
+    border: 2px solid black;
+}
+
+.speedT td {
+    border: 1px solid black;
+    width: 50%;
+    padding: 3px 10px;
+}
+
+.data {
+    opacity: 0;
+    transition-duration: 1s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+}
+
+@media screen and (max-width: 768px) {
+    .mainSlide {
+        margin: 40px;
+    }
+
+    .dataImageLesson>img {
+        width: 300px;
+    }
+}
+
+/*Exercises*/
+.mainSlideExercise {
+    margin: 40px 20px 10px 20px;
+}
+
+.dataImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataImage img {
+    max-width: 768px;
+}
+
+.dataQue {
+    border: 3px solid darkblue;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0 10px 0 10px;
+    font-weight: 600;
+}
+
+.queIndex {
+    position: relative;
+    top: -15px;
+    left: -25px;
+    padding: 0 20px 0 20px;
+    color: white;
+    background-color: darkblue;
+    border: 2px groove blue;
+    border-radius: 15px;
+}
+
+.queText {
+    position: relative;
+    top: -10px;
+}
+
+.options {
+    border: 2px groove darkblue;
+    border-radius: 5px;
+    margin: 11px 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.options:hover {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000,
+        5px 5px 11px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 11px 0px rgba(0, 0, 0, 0);
+}
+
+.selected {
+    border: 2px groove black;
+    border-radius: 5px;
+    background-color: yellow;
+    margin: 11px 30px;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.finishExam {
+    position: relative;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    border: 2px groove darkred;
+    margin: 50px 20px 20px 20px;
+    padding: 10px 25px;
+}
+
+.changeAnswer {
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    border: 2px groove black;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.changeAnswerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.finishExam:hover {
+    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+        2px 3px 15px 14px rgba(0, 0, 0, 0.39);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+        2px 3px 15px 14px rgba(0, 0, 0, 0.39);
+}
+
+.finishExamContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .dataImage img {
+        max-width: 350px;
+    }
+
+    .finishExam {
+        margin-top: 30px 20px 20px 20px;
+        padding: 5px 20px;
+    }
+}
