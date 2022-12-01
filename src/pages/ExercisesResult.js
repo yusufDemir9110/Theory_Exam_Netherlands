@@ -4,6 +4,7 @@ import db from "../firebase/firebase";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
+import Footer from "../components/Footer";
 const ExercisesResult = () => {
   const { state } = useLocation();
   const [results, setResults] = useState([]);
@@ -39,6 +40,7 @@ const ExercisesResult = () => {
   };
   return (
     <div>
+      <Navbar />
       <div className="main">
         <div className="scoreContainer">
           <button className="calculate" onClick={calculateScore}>
@@ -102,6 +104,7 @@ const ExercisesResult = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -753,3 +753,78 @@ h1 {
         padding: 3px 6px;
     }
 }
+
+/*Admin*/
+.mainScreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+}
+
+.selectLanguage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.selectTopOrEx {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topicImageLoader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topics label {
+    margin: 10px;
+}
+
+.topics input {
+    margin: 10px;
+}
+
+.topAndExLabels label {
+    margin: 10px;
+}
+
+.topAndExLabels input {
+    margin: 10px;
+}
+
+.topAddButtonCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textAreaArea {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 30px 0;
+}
