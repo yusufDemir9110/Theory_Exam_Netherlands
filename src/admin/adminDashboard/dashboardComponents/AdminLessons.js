@@ -10,6 +10,7 @@ const AdminLessons = ({ language }) => {
     head: "",
     description: "",
     image: "",
+    imageAlt: "",
   });
   const [disabled, setDisabled] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -59,6 +60,7 @@ const AdminLessons = ({ language }) => {
       head: lesson.head,
       image: imageUrl,
       description: lesson.description,
+      imageAlt: lesson.imageAlt,
     });
     setLesson({
       id: "",
@@ -66,6 +68,7 @@ const AdminLessons = ({ language }) => {
       head: "",
       image: "",
       description: "",
+      imageAlt: "",
     });
     setImageUrl("");
     setDisabled(true);
@@ -136,7 +139,17 @@ const AdminLessons = ({ language }) => {
                 placeholder="head"
               ></input>
             </label>
-
+            <label for="imageAlt">
+              Image Alt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                required
+                type="text"
+                id="imageAlt"
+                value={lesson.imageAlt}
+                onChange={handleChange}
+                placeholder="imageAlt"
+              ></input>
+            </label>
             <div>
               <div className="textAreaArea">Description</div>
               <textarea

@@ -65,7 +65,7 @@ const ExercisesResult = () => {
                 return (
                   <div className="queContainer" key={id}>
                     <div className="queImage">
-                      <img src={data.image}></img>
+                      <img src={data.image} alt={data.imageAlt}></img>
                     </div>
                     <div className="que">{data.question}</div>
                     <div>

@@ -74,7 +74,7 @@ const Exercises = () => {
               {index === current && (
                 <div className="slideExercise">
                   <div className="dataImage">
-                    <img src={data.image}></img>
+                    <img src={data.image} alt={data.imageAlt}></img>
                   </div>
                   <div className="dataQue">
                     <span className="queIndex">Question {index + 1}</span>

@@ -6,7 +6,7 @@ import db from "../firebase/firebase";
 const Navbar = () => {
   const [topics, setTopics] = useState([]);
   useEffect(() => {
-    onSnapshot(collection(db, "topics-data"), (snapshot) =>
+    onSnapshot(collection(db, "topics-data-English"), (snapshot) =>
       setTopics(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -27,7 +27,7 @@ const Navbar = () => {
             Lessons
             <ul className="subUl">
               {topics.map(({ id, data }) => (
-                <Link to={"/lessons"} key={id} state={{ state: data.name }}>
+                <Link to={"/lessons"} key={id} state={data.name}>
                   <li>{data.name}</li>
                 </Link>
               ))}
@@ -37,7 +37,7 @@ const Navbar = () => {
             Exercises
             <ul className="subUl">
               {topics.map(({ id, data }) => (
-                <Link to={"/exercises"} key={id} state={{ state: data.name }}>
+                <Link to={"/exercises"} key={id} state={data.name}>
                   <li>{data.name}</li>
                 </Link>
               ))}
