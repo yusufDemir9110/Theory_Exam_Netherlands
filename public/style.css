@@ -634,3 +634,122 @@ h1 {
         padding: 5px 20px;
     }
 }
+
+/*Exercises Result*/
+.main {
+    padding-top: 55px;
+}
+
+.scoreContainer {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculate {
+    margin: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: 2px groove black;
+}
+
+.score {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.queContainer {
+    margin: 20px 40px;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.queImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.queImage img {
+    width: 250px;
+}
+
+.que {
+    background-color: blue;
+    border: 2px solid darkblue;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.answerHead {
+    position: relative;
+    top: 5px;
+    left: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: darkblue;
+    color: white;
+    z-index: 1;
+}
+
+.answer {
+    position: relative;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.answer p {
+    padding: 0 20px;
+    position: relative;
+    top: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.templateCorrect {
+    position: absolute;
+    top: 0;
+    background-color: green;
+    width: 100%;
+    height: 160%;
+    opacity: 0.3;
+    border-radius: 5px;
+}
+
+.templateWrong {
+    position: absolute;
+    top: 0;
+    background-color: red;
+    width: 100%;
+    height: 160%;
+    opacity: 0.3;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .queContainer {
+        margin: 10px 20px;
+        padding: 5px;
+    }
+
+    .que {
+        font-size: 0.8rem;
+    }
+
+    .answer p {
+        font-size: 0.9rem;
+    }
+
+    .answerHead {
+        font-size: 0.6rem;
+        padding: 3px 6px;
+    }
+}

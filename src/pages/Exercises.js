@@ -47,7 +47,7 @@ const Exercises = () => {
     setShow(true);
   };
   const goFinalPage = () => {
-    navigate("/finalscore", { state: { userAnswers, newTopicName } });
+    navigate("/exercises-result", { state: { userAnswers, newTopicName } });
   };
   return (
     <div>
