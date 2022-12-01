@@ -40,7 +40,7 @@ const Lessons = () => {
                 <div className="slide">
                   <div className="dataHeadLesson">{data.head}</div>
                   <div className="dataImageLesson">
-                    <img src={data.image}></img>
+                    <img src={data.image} alt={data.imageAlt}></img>
                   </div>
                   <div
                     className="dataDesc"

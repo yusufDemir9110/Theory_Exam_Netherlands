@@ -115,7 +115,8 @@ const AdminExercises = ({ language }) => {
                 placeholder="Write Exactly"
               ></input>
             </label>
-
+          </div>
+          <div>
             <label for="image">
               Question Image
               <input
@@ -126,6 +127,17 @@ const AdminExercises = ({ language }) => {
                 value={imageUrl}
                 onChange={handleChange}
                 placeholder="imageUrl"
+              ></input>
+            </label>
+            <label for="imageAlt">
+              image Alt
+              <input
+                required
+                type="text"
+                id="imageAlt"
+                value={exercise.imageAlt}
+                onChange={handleChange}
+                placeholder="image Alt"
               ></input>
             </label>
           </div>
