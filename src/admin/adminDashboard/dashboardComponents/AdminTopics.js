@@ -16,6 +16,7 @@ const AdminTopics = ({ language }) => {
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState("");
 
   function handleChange(e) {
     topic[e.target.id] = e.target.value;
@@ -50,7 +51,7 @@ const AdminTopics = ({ language }) => {
         );
         setProgress(prog);
       },
-      (err) => console.log(err),
+      (err) => setError(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) =>
           setImageUrl(url, imageUrl)
@@ -178,7 +179,7 @@ const AdminTopics = ({ language }) => {
             ></input>
           </label>
         </div>
-
+        {error !== "" ? <h3>Something went wrong {error}</h3> : null}
         <div className="topAddButtonCont">
           <button disabled={disabled} onClick={add}>
             Add

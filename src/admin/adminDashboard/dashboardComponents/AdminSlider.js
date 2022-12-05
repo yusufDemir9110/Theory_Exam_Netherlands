@@ -12,6 +12,7 @@ const Slider = ({ language }) => {
   const [disabled, setDisabled] = useState(true);
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
+  const [error, setError] = useState("");
 
   function handleChange(e) {
     slideItem[e.target.id] = e.target.value;
@@ -41,7 +42,7 @@ const Slider = ({ language }) => {
         );
         setProgress(prog);
       },
-      (err) => console.log(err),
+      (err) => setError(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) =>
           setImageUrl(url, imageUrl)
@@ -104,7 +105,7 @@ const Slider = ({ language }) => {
           onChange={handleChange}
           placeholder="description"
         ></input>
-
+        {error !== "" ? <h3>Something went wrong {error}</h3> : null}
         <button disabled={disabled} onClick={add}>
           Add
         </button>

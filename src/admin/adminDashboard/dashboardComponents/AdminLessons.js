@@ -15,6 +15,7 @@ const AdminLessons = ({ language }) => {
   const [disabled, setDisabled] = useState(true);
   const [progress, setProgress] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
+  const [error, setError] = useState("");
 
   function handleChange(e) {
     lesson[e.target.id] = e.target.value;
@@ -44,7 +45,7 @@ const AdminLessons = ({ language }) => {
         );
         setProgress(prog);
       },
-      (err) => console.log(err),
+      (err) => setError(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) =>
           setImageUrl(url, imageUrl)
@@ -164,7 +165,7 @@ const AdminLessons = ({ language }) => {
             </div>
           </div>
         </div>
-
+        {error !== "" ? <h3>Something went wrong {error}</h3> : null}
         <div className="topAddButtonCont">
           <button disabled={disabled} onClick={add}>
             Add
