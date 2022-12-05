@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useLocation, useNavigate } from "react-router-dom";
 import db from "../firebase/firebase";
 import { Modal, Button } from "react-bootstrap";
+import { GlobalContext } from "../context/GlobalState";
 
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
   const [current, setCurrent] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
   const length = exercises.length;
   const location = useLocation();
   const newTopicName = location.state;
   const navigate = useNavigate();
+  const { language } = useContext(GlobalContext);
+
+  const handleClose = () => setShow(false);
 
   const nextSlide = (e) => {
     e.preventDefault();
@@ -26,13 +28,15 @@ const Exercises = () => {
   };
 
   useEffect(() => {
-    onSnapshot(collection(db, `exercises-data-${location.state}`), (snapshot) =>
-      setExercises(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
+    onSnapshot(
+      collection(db, `exercises-data-${language}-${location.state}`),
+      (snapshot) =>
+        setExercises(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
     );
   }, []);
   const handleClickAnswer = (e, index) => {

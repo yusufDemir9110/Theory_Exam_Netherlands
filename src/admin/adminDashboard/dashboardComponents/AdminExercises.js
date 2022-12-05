@@ -34,7 +34,7 @@ const AdminExercises = ({ language }) => {
   };
 
   const uploadImages = (image) => {
-    const storageRefLes = ref(storage, `/exercises/${image.name}`);
+    const storageRefLes = ref(storage, `/exercises/${language}/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRefLes, image);
     uploadTask.on(
       "state_changed",

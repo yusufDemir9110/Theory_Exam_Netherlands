@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 const Footer = () => {
+  const { language } = useContext(GlobalContext);
   return (
     <footer>
       <div>
-        <h3>Useful Links</h3>
+        {language === "English" ? (
+          <h3>Useful Links</h3>
+        ) : (
+          <h3>Yararlı Linkler</h3>
+        )}
+
         <div className="footerImg">
           <div>
             <div>
@@ -29,16 +36,29 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <h6>
-          Designed By{" "}
-          <a
-            href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Yusuf Demir
-          </a>{" "}
-        </h6>
+        {language === "English" ? (
+          <h6>
+            Designed By{" "}
+            <a
+              href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Yusuf Demir
+            </a>{" "}
+          </h6>
+        ) : (
+          <h6>
+            <a
+              href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Yusuf Demir
+            </a>{" "}
+            tarafindan tasarlanmistir
+          </h6>
+        )}
       </div>
     </footer>
   );

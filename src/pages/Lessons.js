@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { useLocation } from "react-router-dom";
 import db from "../firebase/firebase";
+import { GlobalContext } from "../context/GlobalState";
 
 const Lessons = () => {
   const [lessons, setLessons] = useState([]);
   const [current, setCurrent] = useState(0);
   const length = lessons.length;
   const location = useLocation();
+  const { language } = useContext(GlobalContext);
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -17,18 +19,19 @@ const Lessons = () => {
   };
 
   useEffect(() => {
-    onSnapshot(collection(db, `lessons-data-${location.state}`), (snapshot) =>
-      setLessons(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
+    onSnapshot(
+      collection(db, `lessons-data-${language}-${location.state}`),
+      (snapshot) =>
+        setLessons(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data(),
+          }))
+        )
     );
   }, []);
   return (
     <div>
-      <h1>Lessons</h1>
       <div className="slideBody">
         <div className="mainSlide">
           {lessons.map(({ id, data }, index) => (
