@@ -39,7 +39,7 @@ const AdminTopics = ({ language }) => {
   };
 
   const uploadFiles = (file) => {
-    const storageRef = ref(storage, `/topics/${file.name}`);
+    const storageRef = ref(storage, `/topics/${language}/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
@@ -93,7 +93,7 @@ const AdminTopics = ({ language }) => {
       </div>
       <div className="topics">
         <div>
-          <label for="id">
+          <label htmlFor="id">
             Topic Id
             <input
               required
@@ -106,7 +106,7 @@ const AdminTopics = ({ language }) => {
           </label>
         </div>
         <div>
-          <label for="name">
+          <label htmlFor="name">
             Topic Names
             <input
               required
@@ -117,7 +117,7 @@ const AdminTopics = ({ language }) => {
               placeholder="Topic Name"
             ></input>
           </label>
-          <label for="image">
+          <label htmlFor="image">
             Topic Image
             <input
               required
@@ -131,7 +131,7 @@ const AdminTopics = ({ language }) => {
           </label>
         </div>
         <div>
-          <label for="description1">
+          <label htmlFor="description1">
             Description1
             <input
               required
@@ -142,7 +142,7 @@ const AdminTopics = ({ language }) => {
               placeholder="desc1"
             ></input>
           </label>
-          <label for="description2">
+          <label htmlFor="description2">
             Description2
             <input
               required
@@ -155,7 +155,7 @@ const AdminTopics = ({ language }) => {
           </label>
         </div>
         <div>
-          <label for="description3">
+          <label htmlFor="description3">
             Description3
             <input
               required
@@ -166,7 +166,7 @@ const AdminTopics = ({ language }) => {
               placeholder="desc3"
             ></input>
           </label>
-          <label for="description4">
+          <label htmlFor="description4">
             Description4
             <input
               required

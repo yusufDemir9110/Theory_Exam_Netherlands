@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import db from "../firebase/firebase";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import Footer from "../components/Footer";
+import { GlobalContext } from "../context/GlobalState";
 const ExercisesResult = () => {
   const { state } = useLocation();
   const [results, setResults] = useState([]);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [analysis, setAnalysis] = useState(false);
+  const { language } = useContext(GlobalContext);
 
   useEffect(() => {
     onSnapshot(
-      collection(db, "exercises-data-" + state.newTopicName),
+      collection(db, `exercises-data-${language}-${state.newTopicName}`),
       (snapshot) =>
         setResults(
           snapshot.docs.map((doc) => ({
@@ -28,7 +30,7 @@ const ExercisesResult = () => {
   const calculateScore = () => {
     let newScore = 0;
     for (let i = 0; i < results.length; i++) {
-      if (state.userAnswers[i] == results[i].data.rightOption) {
+      if (state.userAnswers[i] === results[i].data.rightOption) {
         newScore = newScore + 1;
       }
     }

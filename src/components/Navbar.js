@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { collection, onSnapshot } from "firebase/firestore";
 import db from "../firebase/firebase";
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 const Navbar = () => {
   const [topics, setTopics] = useState([]);
+  const { changeLanguage, language } = useContext(GlobalContext);
+
   useEffect(() => {
-    onSnapshot(collection(db, "topics-data-English"), (snapshot) =>
+    onSnapshot(collection(db, `topics-data-${language}`), (snapshot) =>
       setTopics(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -14,7 +18,7 @@ const Navbar = () => {
         }))
       )
     );
-  }, []);
+  }, [changeLanguage, language]);
 
   return (
     <nav>
@@ -24,7 +28,7 @@ const Navbar = () => {
       <div className="menuMainItems">
         <ul className="mainUl">
           <li className="menuSubItems">
-            Lessons
+            {language === "English" ? "Lessons" : "Dersler"}
             <ul className="subUl">
               {topics.map(({ id, data }) => (
                 <Link to={"/lessons"} key={id} state={data.name}>
@@ -34,7 +38,7 @@ const Navbar = () => {
             </ul>
           </li>
           <li className="menuSubItems">
-            Exercises
+            {language === "English" ? "Exercises" : "Testler"}
             <ul className="subUl">
               {topics.map(({ id, data }) => (
                 <Link to={"/exercises"} key={id} state={data.name}>
@@ -44,14 +48,14 @@ const Navbar = () => {
             </ul>
           </li>
           <li className="menuSubItems">
-            Languages
+            {language === "English" ? "Language" : "Dil"}
             <ul className="subUl">
-              <Link to="/">
-                <li>English</li>
-              </Link>
-              <Link to="/tr">
-                <li>Turkish</li>
-              </Link>
+              <li onClick={() => changeLanguage("English")}>
+                {language === "English" ? "English" : "İngilizce"}
+              </li>
+              <li onClick={() => changeLanguage("Turkish")}>
+                {language === "English" ? "Turkish" : "Türkçe"}
+              </li>
             </ul>
           </li>
         </ul>
