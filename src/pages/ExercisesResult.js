@@ -1,36 +1,28 @@
-import React, { useState, useEffect, useContext } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
-import db from "../firebase/firebase";
+import React, { useState, useContext } from "react";
+
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import Footer from "../components/Footer";
 import { GlobalContext } from "../context/GlobalState";
+import useOnSnapshot from "../hooks/useOnSnapshot";
+
 const ExercisesResult = () => {
-  const { state } = useLocation();
-  const [results, setResults] = useState([]);
+  const { location } = useLocation();
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [analysis, setAnalysis] = useState(false);
   const { language } = useContext(GlobalContext);
-
-  useEffect(() => {
-    onSnapshot(
-      collection(db, `exercises-data-${language}-${state.newTopicName}`),
-      (snapshot) =>
-        setResults(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-    );
-  }, []);
+  const [results] = useOnSnapshot(
+    "exercises-data-",
+    language,
+    `-${location.newTopicName}`
+  );
 
   const calculateScore = () => {
     let newScore = 0;
     for (let i = 0; i < results.length; i++) {
-      if (state.userAnswers[i] === results[i].data.rightOption) {
+      if (location.userAnswers[i] === results[i].data.rightOption) {
         newScore = newScore + 1;
       }
     }
@@ -75,13 +67,13 @@ const ExercisesResult = () => {
                         <div>
                           <span className="answerHead">Your Answer</span>
                           <div className="answer">
-                            {state.userAnswers[index] ===
+                            {location.userAnswers[index] ===
                             results[index].data.rightOption ? (
                               <div className="templateCorrect"></div>
                             ) : (
                               <div className="templateWrong"></div>
                             )}
-                            <p>{state.userAnswers[index]}</p>
+                            <p>{location.userAnswers[index]}</p>
                           </div>
                         </div>
                       </div>

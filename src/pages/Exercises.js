@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useContext } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import React, { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import db from "../firebase/firebase";
 import { Modal, Button } from "react-bootstrap";
 import { GlobalContext } from "../context/GlobalState";
+import useOnSnapshot from "../hooks/useOnSnapshot";
 
 const Exercises = () => {
-  const [exercises, setExercises] = useState([]);
   const [current, setCurrent] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [show, setShow] = useState(false);
-  const length = exercises.length;
   const location = useLocation();
   const newTopicName = location.state;
   const navigate = useNavigate();
   const { language } = useContext(GlobalContext);
+  const [exercises] = useOnSnapshot(
+    "exercises-data-",
+    language,
+    `-${location.state}`
+  );
+  const length = exercises.length;
 
   const handleClose = () => setShow(false);
 
@@ -27,18 +30,6 @@ const Exercises = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  useEffect(() => {
-    onSnapshot(
-      collection(db, `exercises-data-${language}-${location.state}`),
-      (snapshot) =>
-        setExercises(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-    );
-  }, []);
   const handleClickAnswer = (e, index) => {
     userAnswers[index] = e.target.textContent;
     setUserAnswers([...userAnswers]);
