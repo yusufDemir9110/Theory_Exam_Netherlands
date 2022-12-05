@@ -5,5 +5,7 @@ export default (state, action) => {
         ...state,
         language: action.payload,
       };
+    default:
+      return { ...state };
   }
 };

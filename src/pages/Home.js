@@ -1,35 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { collection, onSnapshot } from "firebase/firestore";
-import db from "../firebase/firebase";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import { GlobalContext } from "../context/GlobalState";
+import useOnSnapshot from "../hooks/useOnSnapshot";
 
 const Home = () => {
-  const [slides, setSlides] = useState([]);
-  const [topics, setTopics] = useState([]);
   const { language } = useContext(GlobalContext);
-  useEffect(() => {
-    onSnapshot(collection(db, `slider-data-${language}`), (snapshot) =>
-      setSlides(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-    onSnapshot(collection(db, `topics-data-${language}`), (snapshot) =>
-      setTopics(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-  }, [language]);
+  const [slides] = useOnSnapshot("slider-data-", language);
+  const [topics] = useOnSnapshot("topics-data-", language);
 
   return (
     <div>
