@@ -18,9 +18,7 @@ const Exercises = () => {
     `-${location.state}`
   );
   const length = exercises.length;
-
   const handleClose = () => setShow(false);
-
   const nextSlide = (e) => {
     e.preventDefault();
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -49,7 +47,9 @@ const Exercises = () => {
       <div className="slideBodyExercise">
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Are you sure?</Modal.Title>
+            <Modal.Title>
+              {language === "English" ? "Are you sure?" : "Emin misiniz?"}
+            </Modal.Title>
           </Modal.Header>
           <Modal.Footer style={{ paddingBottom: 40 }}>
             <Button variant="secondary" onClick={handleClose}>
@@ -86,7 +86,9 @@ const Exercises = () => {
                             className="changeAnswer"
                             onClick={(e) => changeAnswer(e, index)}
                           >
-                            Change Answer
+                            {language === "English"
+                              ? "Change Answer"
+                              : "Cevabı Değiştir"}
                           </button>
                         </div>
                       </div>
@@ -117,7 +119,7 @@ const Exercises = () => {
         </div>
         <div className="finishExamContainer">
           <button className="finishExam" onClick={finishExam}>
-            Finish Exam
+            {language === "English" ? "Finish Exam" : "Sınavı Bitir"}
           </button>
         </div>
       </div>

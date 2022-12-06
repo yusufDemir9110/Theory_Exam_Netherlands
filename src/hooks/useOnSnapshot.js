@@ -16,7 +16,7 @@ const useOnSnapshot = (dataLocation, language, dataDefinition = "") => {
           }))
         )
     );
-  }, []);
+  }, [language]);
   return [data];
 };
 

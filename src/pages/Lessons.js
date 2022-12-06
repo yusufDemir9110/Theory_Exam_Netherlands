@@ -41,8 +41,12 @@ const Lessons = () => {
                     dangerouslySetInnerHTML={{ __html: data.description }}
                   ></div>
                   <div className="buttonCont">
-                    <button onClick={prevSlide}>Prev</button>
-                    <button onClick={nextSlide}>Next</button>
+                    <button onClick={prevSlide}>
+                      {language === "English" ? "Prev" : "Önceki"}
+                    </button>
+                    <button onClick={nextSlide}>
+                      {language === "English" ? "Next" : "Sonraki"}
+                    </button>
                   </div>
                 </div>
               )}
