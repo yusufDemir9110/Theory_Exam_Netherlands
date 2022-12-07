@@ -1,7 +1,7 @@
 {
   "name": "theory-exam-netherlands",
+  "homepage": "yusufDemir9110.github.io/Theory_Exam_Netherlands",
   "version": "0.1.0",
-  "homepage": "http://yusufDemir9110.github.io/Theory-Exam-Netherlands",
   "private": true,
   "dependencies": {
     "@mui/material": "^5.10.16",
