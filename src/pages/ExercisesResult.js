@@ -76,7 +76,11 @@ const ExercisesResult = () => {
                             ) : (
                               <div className="templateWrong"></div>
                             )}
-                            <p>{state.userAnswers[index]}</p>
+                            <p>
+                              {state.userAnswers[index]
+                                ? state.userAnswers[index]
+                                : "-"}
+                            </p>
                           </div>
                         </div>
                       </div>

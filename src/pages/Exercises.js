@@ -9,14 +9,20 @@ const Exercises = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [show, setShow] = useState(false);
   const location = useLocation();
-  const newTopicName = location.state;
+
   const navigate = useNavigate();
   const { language } = useContext(GlobalContext);
   const [exercises] = useOnSnapshot(
     "exercises-data-",
     language,
-    `-${location.state}`
+    location.state.newTopicName
+      ? `-${location.state.newTopicName}`
+      : `-${location.state}`
   );
+  const newTopicName = location.state.newTopicName
+    ? location.state.newTopicName
+    : location.state;
+  console.log(location);
   const length = exercises.length;
   const handleClose = () => setShow(false);
   const nextSlide = (e) => {
@@ -53,10 +59,10 @@ const Exercises = () => {
           </Modal.Header>
           <Modal.Footer style={{ paddingBottom: 40 }}>
             <Button variant="secondary" onClick={handleClose}>
-              Cancel
+              {language === "English" ? "Cancel" : "İptal"}
             </Button>
             <Button variant="primary" onClick={goFinalPage}>
-              Finish Exam
+              {language === "English" ? "Finish the Exam" : "Sınavı Bitir"}
             </Button>
           </Modal.Footer>
         </Modal>
