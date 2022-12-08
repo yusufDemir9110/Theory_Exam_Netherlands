@@ -93,6 +93,10 @@ nav li {
     display: none;
 }
 
+.subUl li{
+    cursor: pointer;
+}
+
 .menuSubItems {
     padding-left: 15px;
 }

@@ -9,6 +9,7 @@ const AdminExercises = ({ language }) => {
     topic: "",
     question: "",
     image: "",
+    imageAlt: "",
     rightOption: "",
     wrongOptions: "",
   });
@@ -19,7 +20,7 @@ const AdminExercises = ({ language }) => {
 
   function handleChange(e) {
     exercise[e.target.id] = e.target.value;
-    setExercise({ ...exercise, exercise });
+    setExercise({ ...exercise });
 
     if (exercise.id !== "" && exercise.question !== "") {
       setDisabled(false);
@@ -70,6 +71,7 @@ const AdminExercises = ({ language }) => {
       id: "",
       topic: "",
       image: "",
+      imageAlt: "",
       question: "",
       rightOption: "",
       wrongOptions: "",

@@ -16,7 +16,7 @@ const Slider = ({ language }) => {
 
   function handleChange(e) {
     slideItem[e.target.id] = e.target.value;
-    setSlideItem({ ...slideItem, slideItem });
+    setSlideItem({ ...slideItem });
 
     if (imageUrl !== "") {
       setDisabled(false);

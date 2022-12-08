@@ -20,7 +20,7 @@ const AdminTopics = ({ language }) => {
 
   function handleChange(e) {
     topic[e.target.id] = e.target.value;
-    setTopic({ ...topic, topic });
+    setTopic({ ...topic });
     if (
       topic.id !== "" &&
       topic.name !== "" &&

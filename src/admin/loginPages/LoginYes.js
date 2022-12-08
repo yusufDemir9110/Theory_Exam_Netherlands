@@ -12,9 +12,7 @@ const LoginYes = () => {
         console.log("logged out");
         navigate("/");
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => alert(error.message));
   };
   return (
     <div>
@@ -26,7 +24,6 @@ const LoginYes = () => {
           <button onClick={() => logout()}>Log Out</button>
         </div>
       </div>
-
       <div>
         <Dashboard />
       </div>

@@ -19,7 +19,7 @@ const AdminLessons = ({ language }) => {
 
   function handleChange(e) {
     lesson[e.target.id] = e.target.value;
-    setLesson({ ...lesson, lesson });
+    setLesson({ ...lesson });
 
     if (lesson.id !== "" && lesson.head !== "") {
       setDisabled(false);
