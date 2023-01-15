@@ -232,7 +232,7 @@ nav ul.subUl li {
     margin-bottom: 1.2rem;
 }
 
-.homeMain h3::after{
+.homeMain h3::after, .footerSub h2::after, .footerSub h3::after{
     content: "";
     width: 200px;
     height: 2px;
@@ -907,6 +907,10 @@ footer {
     padding: 0 2rem;
 }
 
+.footerSub h2,h3{
+    position: relative;
+}
+
 footer h2,h3,h6 {
     padding-top: 20px;
     text-align: center;
@@ -933,6 +937,7 @@ footer a:hover {
 }
 
 .footerImg {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -945,6 +950,10 @@ footer a:hover {
     color: var(--color-black);
     width: 40%;
     margin-bottom: 2rem;
+}
+
+.formContainer h2{
+    position: relative;
 }
 
 .formContainer button {

@@ -48,8 +48,6 @@ function Contact() {
   return (
     <div className="formContainer" id="formContainer">
       {language === "English" ? <h2>Contact Us</h2> : <h2>İletişim</h2>}
-
-      <hr />
       <div className="formItems">
         <div>
           <label htmlFor="name">
