@@ -6,6 +6,7 @@ import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import { GlobalContext } from "../context/GlobalState";
 import useOnSnapshot from "../hooks/useOnSnapshot";
+import homeImg from "../assets/homeImg.jpg";
 
 const Home = () => {
   const { language } = useContext(GlobalContext);
@@ -32,73 +33,65 @@ const Home = () => {
           </Paper>
         ))}
       </Carousel>
-      {language === "English" ? (
-        <main>
-          <h3>
-            Prepare for the Netherlands driving test with our free lessons and
-            practice exams
-          </h3>
-          <p>
-            &gt;&gt;In Netherlands, to get a B driver's license, you must pass
-            the theory exam and the driving test.
-          </p>
-          <p>
-            &gt;&gt;There are 2 organizations responsible for obtaining driver's
-            licenses and conducting driver's license exams:
-          </p>
-          <ul>
-            <li>
-              - Road Transport Authority-RDW (Rijksdienst voor het Wegverkeer):
-              The RDW institution carries out the license work and transactions
-              and also carries out inspections.
-            </li>
-            <li>
-              - Central Bureau of Driving Skills (Centraal Bureau
-              Rijvaardigheid): The CBR is the agency responsible for conducting
-              driver examinations for all motor vehicles in the Netherlands,
-              including cars, mopeds, motorcycles and trucks.
-            </li>
-          </ul>
-          <p>
-            &gt;&gt;Theory Exam Netherlands, will be an excellent assistant for
-            you about the B driver's license theory exam. We also strongly
-            recommend you to apply for professional courses.
-          </p>
-        </main>
-      ) : (
-        <main>
-          <h3>
-            Ücretsiz derslerimiz ve uygulama sınavlarımızla Hollanda ehliyet
-            sınavına hazırlanın
-          </h3>
-          <p>
-            &gt;&gt;Hollanda'da B ehliyeti almak için teori sınavını ve
-            direksiyon sınavını geçmelisiniz.
-          </p>
-          <p>
-            &gt;&gt;Sürücü belgelerinin alınmasından ve sürücü belgesi
-            sınavlarının yürütülmesinden sorumlu 2 kuruluş vardır:
-          </p>
-          <ul>
-            <li>
-              Karayolları Ulaşım Otoritesi-RDW (Rijksdienst voor het
-              Wegverkeer): RDW kurumu, ruhsat iş ve işlemlerini yürütmekte ve
-              ayrıca denetimler yapmaktadır.
-            </li>
-            <li>
-              Sürüş Becerileri Merkezi Bürosu (Centraal Bureau Rijvaardigheid):
-              CBR, Hollanda'da arabalar, mopedler, motosikletler ve kamyonlar
-              dahil olmak üzere tüm motorlu taşıtlar için sürücü muayeneleri
-              yapmaktan sorumlu kurumdur.
-            </li>
-          </ul>
-          <p>
-            &gt;&gt;Theory Exam Netherlands, B ehliyet teori sınavı hakkında
-            size mükemmel bir yardımcı olacaktır. Ayrıca profesyonel kurslara
-            başvurmanızı şiddetle tavsiye ederiz.
-          </p>
-        </main>
-      )}
+      <main className="homeMain">
+        {language === "English" ? (
+          <article>
+            <h3>Do you want to drive a car?</h3>
+            <p>
+              Go to the nearest supermarket to you. You can buy your driver's
+              license there for 1 euro.
+            </p>
+            <p>
+              How easy would it be if you could get your driver's license this
+              way, wouldn't it? But life is not that easy. As in many countries
+              of the world, you must pass the theory exam and the driving exam
+              to obtain a class B driver's license in the Netherlands.
+            </p>
+            <p>
+              Only Tom Cruise's Mission Impossible crew can pass these exams...
+              Do not worry. Life isn't easy, but it's not that hard either. All
+              you have to do to pass these exams is study and practice.
+            </p>
+            <p>
+              Fortunately, you have very good helpers in this regard. Theory
+              Exam Netherlands, will be an excellent assistant for you about the
+              B driver's license theory exam. But don't just settle for us. We
+              also strongly recommend you to apply for professional courses.
+            </p>
+          </article>
+        ) : (
+          <article>
+            <h3>Otomobil kullanmak mı istiyorsunuz?</h3>
+            <p>
+              Size en yakın süpermarkete gidin. Ehliyetinizi oradan 1 euro
+              karşılığında satın alabilirsiniz.
+            </p>
+            <p>
+              Sürücü belgesini bu şekilde alabilseniz ne kadar kolay olurdu,
+              değil mi? Ama hayat bu kadar kolay değil. Dünyanın birçok
+              ülkesinde olduğu gibi Hollanda'da da B sınıfı sürücü belgesi almak
+              için teori sınavını ve direksiyon sınavını geçmelisiniz.
+            </p>
+            <p>
+              Bu sınavları sadece Tom Cruise'un Görevimiz Tehlike ekibi
+              geçebilir... Merak etmeyin. Hayat kolay değil ama o kadar da zor
+              değil. Bu sınavları geçmek için yapmanız gereken tek şey çalışmak
+              ve pratik yapmaktır.
+            </p>
+            <p>
+              Neyse ki bu konuda çok iyi yardımcılarınız var. Teori Sınavı
+              Hollanda, B ehliyet teori sınavı hakkında size mükemmel bir
+              yardımcı olacaktır. Ama bizimle yetinmeyin. Ayrıca profesyonel
+              kurslara başvurmanızı şiddetle tavsiye ederiz.
+            </p>
+          </article>
+        )}
+        <article>
+          <div className="homeImgContainer">
+            <img className="homeImg" src={homeImg} alt="Happy Driver" />
+          </div>
+        </article>
+      </main>
 
       <section>
         <h1 id="lessonH1">
