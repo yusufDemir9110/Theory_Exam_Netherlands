@@ -34,6 +34,15 @@ const Footer = () => {
                   <span>Centraal Bureau Rijvaardigheid (CBR)</span>
                 </a>
               </div>
+              <div>
+                <a href="https://www.mobielschademelden.nl">
+                  <img
+                    src="https://www.mobielschademelden.nl/assets/images/logo.png"
+                    alt="Mobiel Schademelden Logo"
+                  />
+                  <span>Mobiel Schademelden</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

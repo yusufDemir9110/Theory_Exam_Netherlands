@@ -534,7 +534,8 @@ h1 {
     text-indent: 15px;
 }
 
-.dataDesc h3 {
+.dataDesc h3,
+.dataDesc h4 {
     text-align: center;
     margin: 10px 0;
 }
@@ -993,7 +994,7 @@ footer a:hover {
 }
 
 .formItems input,
-textarea{
+.formItems textarea{
     border: none;
     border-bottom: 2px solid var(--color-black);
     background: none;
