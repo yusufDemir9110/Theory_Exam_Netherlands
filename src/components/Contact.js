@@ -87,14 +87,22 @@ function Contact() {
           </label>
         </div>
       </div>
-      <div className="policy">
-        I confirm that I have read&nbsp;
-        <Link to="/privacy">Privacy Policy</Link>&nbsp;and I agree to the use of
-        my data in line therewith.
-      </div>
+      {language === "English" ? (
+        <div className="policy">
+          I confirm that I have read&nbsp;
+          <Link to="/privacy">Privacy Policy</Link>&nbsp;and I agree to the use
+          of my data in line therewith.
+        </div>
+      ) : (
+        <div className="policy">
+          <Link to="/privacy">Gizlilik Sözleşmesini</Link>&nbsp;okuduğumu
+          onaylıyor ve verilerimin bu doğrultuda kullanılmasına izin veriyorum.
+        </div>
+      )}
+
       <div className="sendButton">
         <button type="submit" disabled={disabled} onClick={add}>
-          Send Message
+          {language === "English" ? "Send Message" : "Gönder"}
         </button>
       </div>
     </div>

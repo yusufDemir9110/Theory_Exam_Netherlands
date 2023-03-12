@@ -49,27 +49,31 @@ const Footer = () => {
       </div>
       <div>
         {language === "English" ? (
-          <h6>
-            Designed By{" "}
-            <a
-              href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Yusuf Demir
-            </a>{" "}
-          </h6>
+          <div className="footerText">
+            <h6>
+              Designed By{" "}
+              <a
+                href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Yusuf Demir
+              </a>{" "}
+            </h6>
+          </div>
         ) : (
-          <h6>
-            <a
-              href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Yusuf Demir
-            </a>{" "}
-            tarafindan tasarlanmistir
-          </h6>
+          <div className="footerText">
+            <h6>
+              <a
+                href="https://www.linkedin.com/in/yusuf-demir-91439719b/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Yusuf Demir
+              </a>{" "}
+              tarafından tasarlanmıştır
+            </h6>
+          </div>
         )}
       </div>
     </footer>

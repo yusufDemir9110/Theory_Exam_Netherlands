@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { GlobalContext } from "../context/GlobalState";
 import useOnSnapshot from "../hooks/useOnSnapshot";
@@ -12,6 +12,7 @@ const ExercisesResult = () => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [analysis, setAnalysis] = useState(false);
+  const [bar, setBar] = useState(0);
   const { language } = useContext(GlobalContext);
   const [results] = useOnSnapshot(
     "exercises-data-",
@@ -27,6 +28,7 @@ const ExercisesResult = () => {
     }
     setScore(newScore);
     setShowScore(true);
+    setBar((newScore / results.length) * 100);
   };
   const showAnalysis = () => {
     setAnalysis(true);
@@ -36,12 +38,44 @@ const ExercisesResult = () => {
       <Navbar />
       <div className="main">
         <div className="scoreContainer">
+          {language === "English" ? (
+            <h3>Congratulations!</h3>
+          ) : (
+            <h3>Tebrikler!</h3>
+          )}
+          {language === "English" ? (
+            <p>
+              You finished the exercise. Click "Calculate Score" to see your
+              score. And click "Analysis" to match your answers and correct
+              answers.
+            </p>
+          ) : (
+            <p>
+              Testi bitirdiniz. Skorunuzu görmek için "Skoru Hesapla" butonuna,
+              cevaplarınızı doğru cevaplarla eşleştirmek için "Analiz" butonuna
+              tıklayınız.
+            </p>
+          )}
+        </div>
+        <div className="scoreContainer">
           <button className="calculate" onClick={calculateScore}>
             {language === "English" ? "Calculate Score" : "Skoru Hesapla"}
           </button>
           {showScore ? (
             <div className="score">
-              {score} / {results.length}
+              <h1>
+                {score} / {results.length}
+              </h1>
+              <div className="barOuter">
+                <div
+                  className="barInner"
+                  style={{
+                    width: `${bar}%`,
+                    backgroundColor:
+                      bar < 40 ? "red" : bar < 80 ? "orange" : "green",
+                  }}
+                ></div>
+              </div>
             </div>
           ) : null}
         </div>

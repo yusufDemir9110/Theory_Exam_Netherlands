@@ -22,9 +22,11 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="logo">
-        <div>TheoryExam</div>
-      </div>
+      <Link className="logoLink" to="/">
+        <div className="logo">
+          <div>TheoryExamNL</div>
+        </div>
+      </Link>
       <div className="menuMainItems">
         <ul className="mainUl">
           <li className="menuSubItems">

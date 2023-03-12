@@ -47,6 +47,10 @@ nav li:hover {
     text-decoration: underline;
 }
 
+.logoLink{
+    text-decoration: none;
+}
+
 .logo {
     display: flex;
     justify-content: center;
@@ -170,6 +174,10 @@ nav ul.subUl li {
     .mainUl>li:nth-child(1),
     .mainUl>li:nth-child(2) {
         display: none;
+    }
+    .logo {
+        font-size:0.8rem;
+        margin: 0.5rem 1rem;
     }
 }
 
@@ -736,6 +744,19 @@ h1 {
     font-weight: 600;
 }
 
+.barOuter{
+    height: 16px;
+    width:300px;
+    outline: 2px solid var(--color-black);
+    border-radius: 1rem;
+    background-color: var(--color-grey);
+}
+
+.barInner{
+    height: 16px;
+    border-radius: 1rem 0 0 1rem;
+}
+
 .queContainer {
     margin: 20px 40px;
     border: 2px solid rgba(0, 0, 0, 0.8);
@@ -921,8 +942,13 @@ footer {
     position: relative;
 }
 
-footer h2,h3,h6 {
+footer h2,h3 {
     padding-top: 20px;
+    text-align: center;
+    color: #191b26;
+}
+
+h6{
     text-align: center;
     color: #191b26;
 }
@@ -952,6 +978,9 @@ footer a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.footerText{
+    margin-top: 2rem;
 }
 
 /*Contact*/
