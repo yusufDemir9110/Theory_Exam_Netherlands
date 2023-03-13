@@ -78,7 +78,9 @@ const Exercises = () => {
                     <img src={data.image} alt={data.imageAlt}></img>
                   </div>
                   <div className="dataQue">
-                    <span className="queIndex">Question {index + 1}</span>
+                    <span className="queIndex">
+                      {language === "English" ? "Question" : "Soru"} {index + 1}
+                    </span>
                     <div className="queText">
                       &nbsp;&nbsp;&nbsp;{data.question}
                     </div>
@@ -115,8 +117,12 @@ const Exercises = () => {
                     )}
                   </div>
                   <div className="buttonCont">
-                    <button onClick={prevSlide}>Prev</button>
-                    <button onClick={nextSlide}>Next</button>
+                    <button onClick={prevSlide}>
+                      {language === "English" ? "Prev" : "Önceki"}
+                    </button>
+                    <button onClick={nextSlide}>
+                      {language === "English" ? "Next" : "Sonraki"}
+                    </button>
                   </div>
                 </div>
               )}
