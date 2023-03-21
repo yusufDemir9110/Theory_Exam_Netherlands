@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import useOnSnapshot from "../hooks/useOnSnapshot";
 import { Modal, Button } from "react-bootstrap";
@@ -102,6 +102,15 @@ const Lessons = () => {
                         ? "Bitir"
                         : "Sonraki"}
                     </button>
+                  </div>
+                  <div className="buttonCont">
+                    <Link to="/">
+                      <button className="calculate">
+                        {language === "English"
+                          ? "Go to Homepage"
+                          : "Anasayfaya Dön"}
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}

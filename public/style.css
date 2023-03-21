@@ -210,6 +210,10 @@ nav ul.subUl li {
     padding: 0 1rem;
 }
 
+.homeMain article p{
+    text-align: justify;
+}
+
 .homeImgContainer{
     position: relative;
     width: 100%;
@@ -512,6 +516,7 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 24px;
 }
 
 .buttonCont button {
